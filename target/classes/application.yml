@@ -1,0 +1,24 @@
+server:
+  port: 8090
+spring.cloud.stream.kafka.streams.binder.configuration.commit.interval.ms: 10
+
+spring.cloud.stream:
+  function:
+     definition: orderEventPublisher;shippingEventPublisher;orderEventProcessor;shippingEventProcessor;paymentEventConsumer;shippingEventConsumer
+  bindings:
+    orderEventPublisher-out-0:
+      destination: order-events
+    orderEventProcessor-in-0:
+      destination: order-events
+    orderEventProcessor-out-0:
+      destination: payment-events
+    paymentEventConsumer-in-0:
+      destination: payment-events
+    shippingEventPublisher-out-0:
+      destination: shppingafterpayment-events  
+    shippingEventProcessor-in-0:
+      destination: shppingafterpayment-events
+    shippingEventProcessor-out-0:
+      destination: shipping-events
+    shippingEventConsumer-in-0:
+      destination: shipping-events
