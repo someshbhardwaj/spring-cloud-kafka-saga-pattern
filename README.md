@@ -1,4 +1,4 @@
-"# spring-cloud-kafka-saga-pattern" 
+# spring-cloud-kafka-saga-pattern
 
 Pre-requisites:
 Install Kafka
